@@ -1,3 +1,3 @@
 - 부록 참조(별첨 파일)
-  → 비교 지표는 [부록 A(고정본)](https://github.com/Emma0077/file/blob/8c93567b2f83df69b855d26de37eba177cc5a7d4/appendix/APPENDIX_A_metrics_v2.3.2.md) 기준으로 산정, 보고서 각주에 산식 병기
-  → 외부 데이터는 [부록 B(고정본)](https://github.com/Emma0077/file/blob/8c93567b2f83df69b855d26de37eba177cc5a7d4/appendix/APPENDIX_B_trust_levels_v2.3.2.md)에 따라 High/Medium/Low 등급 부여·표기
+  → 비교 지표는 [부록 A(고정본)](https://github.com/Emma0077/file/blob/v2.3.2/appendix/APPENDIX_A_metrics_v2.3.2.md) 기준으로 산정, 보고서 각주에 산식 병기
+  → 외부 데이터는 [부록 B(고정본)](https://github.com/Emma0077/file/blob/v2.3.2/appendix/APPENDIX_B_trust_levels_v2.3.2.md)에 따라 High/Medium/Low 등급 부여·표기
