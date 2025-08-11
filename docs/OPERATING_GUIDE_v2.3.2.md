@@ -1,0 +1,2 @@
+- 비교 지표는 [부록 A(지표 정의·산식 고정)](../appendix/APPENDIX_A_metrics_v2.3.2.md) 기준으로 산정, 보고서 각주에 산식 병기
+- 외부 데이터는 [부록 B(신뢰도 기준표)](../appendix/APPENDIX_B_trust_levels_v2.3.2.md)에 따라 High/Medium/Low 등급 부여·표기
