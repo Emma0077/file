@@ -1,0 +1,53 @@
+<!-- Facebook Pixel fbclid 캡처 Code -->
+<script>
+(function () {
+  var m = location.search.match(/[?&]fbclid=([^&]+)/);
+  if (!m) return;
+  var fbclid = decodeURIComponent(m[1]);
+
+  var isHttps = location.protocol === 'https:';
+  var opts = ";path=/;max-age=7776000;SameSite=Lax" + (isHttps ? ";Secure" : "");
+
+  // keep raw fbclid handy (session + optional cookie)
+  sessionStorage.setItem("fbclid", fbclid);
+  if (!document.cookie.match(/(?:^|;\s*)fbclid=/)) {
+    document.cookie = "fbclid=" + fbclid + opts;
+  }
+
+  // only create _fbc if not already present
+  if (!document.cookie.match(/(?:^|;\s*)_fbc=/)) {
+    var ts = Math.floor(Date.now() / 1000);
+    document.cookie = "_fbc=" + "fb.1." + ts + "." + fbclid + opts;
+  }
+})();
+</script>
+
+
+
+<!-- _fbc 있을때만 전송 -->
+// fbclid / _fbc 체크 함수
+function isMetaAdSession() {
+  // 1️⃣ URL 파라미터 확인
+  const params = new URLSearchParams(window.location.search);
+  if (params.has('fbclid')) return true;
+
+  // 2️⃣ 쿠키 확인
+  const cookie = document.cookie;
+  if (cookie.includes('_fbc=') || cookie.includes('fbclid=')) return true;
+
+  // 3️⃣ 세션 저장소 확인
+  if (sessionStorage.getItem('fbclid')) return true;
+
+  return false;
+}
+
+// 예: 설문 완료 시 호출되는 함수
+function handleSurveyComplete() {
+  if (isMetaAdSession()) {
+    fbq('track', 'Lead');
+    fbq('track', 'CompleteRegistration');
+    console.log('[Meta Pixel] 광고 유입 세션으로 전환 이벤트 전송됨');
+  } else {
+    console.log('[Meta Pixel] 광고 유입 아님 — 이벤트 전송 안 함');
+  }
+}
